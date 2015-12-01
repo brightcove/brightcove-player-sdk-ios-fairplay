@@ -1,0 +1,6 @@
+framework module BrightcoveFairPlay {
+  umbrella header "BrightcoveFairPlay.h"
+
+  export *
+  module * { export * }
+}

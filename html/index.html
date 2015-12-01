@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVFairPlay Reference</title>
+
+	<link rel="stylesheet" href="css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="index.html">BCOVFairPlay </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="index.html">Brightcove</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="hierarchy.html">Hierarchy</a></li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview-contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVFairPlay Reference</h1>
+
+					
+					<div class="section section-overview index-overview">
+						
+						
+						<h1>FairPlay plugin for Brightcove Player SDK for iOS, version 1.0.0.17</h1>
+
+<h1>Supported Platforms</h1>
+
+<p>iOS 7.0 and above.<br/>
+tvOS 9.0 and above.</p>
+
+<h1>Installation</h1>
+
+<p>The FairPlay plugin for the Brightcove Player SDK provides two installation packages for iOS, a static library framework and a dynamic framework. The static library target supports deployment on iOS 7 while the dynamic framework only supports iOS 8 and above.</p>
+
+<p>The FairPlay plugin provides a dynamic framework to support tvOS 9.0 and above.</p>
+
+<p><strong>While the plugin contains simulator architectures, you can not play FPS protected content in the simulator. This is a FairPlay limitation.</strong></p>
+
+<h2>CocoaPods</h2>
+
+<p>You can use <a href="http://cocoapods.org">CocoaPods</a> to add the Brightcove Player SDK to your project. You can find the latest <code>Brightcove-Player-SDK-FairPlay</code> podspec <a href="https://github.com/CocoaPods/Specs/tree/master/Specs/Brightcove-Player-SDK-FairPlay">here</a>. The podspec supports both iOS and tvOS. CocoaPods 0.39 or newer is required.</p>
+
+<p>Specifying the default pod <code>Brightcove-Player-SDK-FairPlay</code> will install the static library framework. To install the dynamic framework, declare the pod with the <code>dynamic</code> subspec: <code>Brightcove-Player-SDK-FairPlay/dynamic</code></p>
+
+<p>Static Framework example:</p>
+
+<pre><code>pod 'Brightcove-Player-SDK-FairPlay'
+</code></pre>
+
+<p>Dynamic Framework example:</p>
+
+<pre><code>pod 'Brightcove-Player-SDK-FairPlay/dynamic'    
+</code></pre>
+
+<h2>Manual</h2>
+
+<p>To add the FairPlay plugin for Brightcove Player SDK to your project manually:</p>
+
+<ol>
+<li>Install the latest version of the <a href="https://github.com/brightcove/brightcove-player-sdk-ios">Brightcove Player SDK</a>.</li>
+<li>Download the latest zipped release of the plugin from our <a href="https://github.com/brightcove/brightcove-player-sdk-ios-fairplay/releases">release page</a>.</li>
+<li>Add the <code>BrightcoveFairPlay.framework</code> to your project.</li>
+<li>On the &ldquo;Build Settings&rdquo; tab of your application target, ensure that the &ldquo;Framework Search Paths&rdquo; include the path to the framework. This should have been done automatically unless the framework is stored under a different root directory than your project.</li>
+<li>On the &ldquo;General&rdquo; tab of your application target, add the following to the &ldquo;Link
+ Binary With Libraries&rdquo; section:
+
+<ul>
+<li><code>BrightcoveFairPlay.framework</code></li>
+</ul>
+</li>
+<li>(Dynamic Framework only) On the &ldquo;General&rdquo; tab of your application target, add &lsquo;BrightcoveFairPlay.framework&rsquo; to the &ldquo;Embedded Binary&rdquo; section.</li>
+<li>(Dynamic Framework only) On the &ldquo;Build Phases&rdquo; tab, add a &ldquo;Run Script&rdquo; phase with the command <code>bash ${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/BrightcoveFairPlay.framework/strip-frameworks.sh</code>. Check &ldquo;Run script only when installing&rdquo;. This will remove unneeded architectures from the build, which is important for App Store submission. (<a href="https://openradar.appspot.com/19209161">rdar://19209161</a>)</li>
+<li>(Static Framework only) On the &ldquo;Build Settings&rdquo; tab of your application target, add <code>-ObjC</code> to the &ldquo;Other Linker Flags&rdquo; build setting.</li>
+</ol>
+
+
+<h2>Imports</h2>
+
+<p>The Brightcove Player SDK for iOS can be imported into code a few different ways; <code>@import BrightcoveFairPlay;</code>, <code>#import &lt;BrightcoveFairPlay/BrightcoveFairPlay.h&gt;</code> or <code>#import &lt;BrightcoveFairPlay/[specific class].h&gt;</code>.</p>
+
+<h1>Quick Start</h1>
+
+<p>Brightcove FairPlay is a bridge between Apple FairPlay and the <a href="https://github.com/brightcove/brightcove-player-sdk-ios">Brightcove Player SDK for iOS</a>. Its use is relatively straightforward.</p>
+
+<pre><code>    @property (nonatomic, strong) id&lt;BCOVPlaybackController&gt; playbackController;
+
+    -------
+
+[1] BCOVFPSBrightcoveAuthProxy *proxy = [[BCOVFPSBrightcoveAuthProxy alloc] initWithApplicationId:&lt;app-id&gt;
+                                                                                      publisherId:&lt;pub-id&gt;
+
+[2] [proxy retrieveApplicationCertificate:^(NSData * _Nullable applicationCetificate, NSError * _Nullable error) {
+
+        if (applicationCetificate)
+        {
+            BCOVPlayerSDKManager *sdkManager = [BCOVPlayerSDKManager sharedManager];
+
+[3]         id&lt;BCOVPlaybackController&gt; playbackController =
+                        [sdkManager createFairPlayPlaybackControllerWithApplicationCertificate:applicationCetificate
+                                                                            authorizationProxy:proxy
+                                                                                  viewStrategy:nil];
+            playbackController.delegate = self;
+            _playbackController = playbackController;
+            [self.view addSubview:playbackController.view];
+
+            BCOVPlaybackService *playbackService = [[BCOVPlaybackService alloc] initWithAccountId:&lt;account-id&gt; policyKey:&lt;policy-key&gt;];
+
+            [playbackService findVideoWithVideoID:&lt;video-id&gt;
+                                       parameters:@{}
+                                       completion:^(BCOVVideo *video, NSDictionary *jsonResponse, NSError *error) {
+
+                if(video)
+                {
+                   [self.playbackController setVideos:@[video]];
+                }
+
+            }];
+        }
+
+    }];
+</code></pre>
+
+<p>Let&rsquo;s break this code down into steps, to make it a bit simpler to digest:</p>
+
+<ol>
+<li>Create a <a href="Classes/BCOVFPSBrightcoveAuthProxy.html"><code>BCOVFPSBrightcoveAuthProxy</code></a> object using the application id and publisher id used to register your FairPlay credentials with fps.brightcove.com.</li>
+<li>Using the proxy, retrieve the FairPlay application certificate. In an actual app, you might want to do this as soon as the app starts up, to have it ready when it is time to play content.</li>
+<li>Brightcove FairPlay adds some category methods to BCOVPlaybackManager. Pass the application certificate and the proxy object to <code>[BCOVPlayerSDKManager createFairPlayPlaybackControllerWithApplicationCertificate:authorizationProxy:viewStrategy:]</code>. If you are using your own FairPlay license server, this is where you would provide you own proxy implementation.</li>
+</ol>
+
+
+<p>If you have questions or need help, we have a support forum for Brightcove&rsquo;s native Player SDKs at <a href="https://groups.google.com/forum/#!forum/brightcove-native-player-sdks">[https://groups.google.com/forum/](https://groups.google.com/forum/)#!forum/brightcove-native-player-sdks</a> .</p>
+
+<h1>Requesting the Application Certificate</h1>
+
+<p>In order to play FairPlay protected content, you must initialize the Brightcove FairPlay plugin with the Application Certificate data associated with the content. The <a href="Classes/BCOVFPSBrightcoveAuthProxy.html"><code>BCOVFPSBrightcoveAuthProxy</code></a> offers a convenience method to retrieve this from fps.brightcove.com.</p>
+
+<p>In order to provide the best experience possible, it is recommended that you retrieve this certificate before the user tries to initiate playback, in order to decrease the amount of time it takes to start playing video.</p>
+
+<h1>Using another FairPlay license Server</h1>
+
+<p>The <a href="Classes/BCOVFPSBrightcoveAuthProxy.html"><code>BCOVFPSBrightcoveAuthProxy</code></a> is intended to interface with <code>fps.brightcove.com</code>. If you need to use another FairPlay license server, you can implement the <a href="Protocols/BCOVFPSAuthorizationProxy.html"><code>BCOVFPSAuthorizationProxy</code></a> protocol to handle the license communication.</p>
+						
+						
+					</div>
+					
+
+					<div class="index-container">
+						
+
+						
+						<div class="index-column">
+							<h2 class="index-title">Class References</h2>
+							<ul>
+								
+								<li><a href="Classes/BCOVFPSBrightcoveAuthProxy.html">BCOVFPSBrightcoveAuthProxy</a></li>
+								
+							</ul>
+						</div>
+						
+
+						
+						<div class="index-column">
+							
+							<h2 class="index-title">Protocol References</h2>
+							<ul>
+								
+								<li><a href="Protocols/BCOVFPSAuthorizationProxy.html">BCOVFPSAuthorizationProxy</a></li>
+								
+							</ul>
+							
+
+							
+
+							
+							<h2 class="index-title">Category References</h2>
+							<ul>
+								
+								<li><a href="Categories/BCOVPlayerSDKManager+BCOVFPSAdditions.html">BCOVPlayerSDKManager(BCOVFPSAdditions)</a></li>
+								
+							</ul>
+							
+						</div>
+						
+					</div>
+
+					<footer>
+						<div class="footer-copyright">
+							
+							<p class="copyright">Copyright &copy; 2015 Brightcove. All rights reserved. Updated: 2015-12-01</p>
+							
+							
+							<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
+							
+						</div>
+					</footer>
+				</main>
+			</div>
+		</div>
+	</article>
+
+	<script src="js/script.js"></script>
+</body>
+</html>

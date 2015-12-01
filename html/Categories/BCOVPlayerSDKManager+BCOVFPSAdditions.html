@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVPlayerSDKManager(BCOVFPSAdditions) Category Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">BCOVFairPlay </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Brightcove</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/createFairPlayPlaybackControllerWithApplicationCertificate:authorizationProxy:viewStrategy:">- createFairPlayPlaybackControllerWithApplicationCertificate:authorizationProxy:viewStrategy:</option>
+		
+		<option value="//api/name/createFairPlaySessionProviderWithApplicationCertificate:authorizationProxy:upstreamSessionProvider:">- createFairPlaySessionProviderWithApplicationCertificate:authorizationProxy:upstreamSessionProvider:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVPlayerSDKManager(BCOVFPSAdditions) Category Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Declared in</th>
+	<td>BCOVFPSComponent.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>Adds methods to BCOVPlayerSDKManager to create FairPlay players and session providers.</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/createFairPlayPlaybackControllerWithApplicationCertificate:authorizationProxy:viewStrategy:" title="createFairPlayPlaybackControllerWithApplicationCertificate:authorizationProxy:viewStrategy:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createFairPlayPlaybackControllerWithApplicationCertificate:authorizationProxy:viewStrategy:">&ndash;&nbsp;createFairPlayPlaybackControllerWithApplicationCertificate:authorizationProxy:viewStrategy:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates and returns a FairPlay enabled playback controller.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (nonnull id&lt;BCOVPlaybackController&gt;)createFairPlayPlaybackControllerWithApplicationCertificate:(nonnull NSData *)<em>appCert</em> authorizationProxy:(nonnull id&lt;BCOVFPSAuthorizationProxy&gt;)<em>proxy</em> viewStrategy:(nullable BCOVPlaybackControllerViewStrategy)<em>viewStrategy</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>appCert</code></th>
+						<td><p>The Fairplay Application Certificate for this session provider.
+If using Brightcove FPS Server, this can retrieved by
+<a href="../Classes/BCOVFPSBrightcoveAuthProxy.html">BCOVFPSBrightcoveAuthProxy</a>. Must not be nil.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>proxy</code></th>
+						<td><p>The <a href="../Protocols/BCOVFPSAuthorizationProxy.html">BCOVFPSAuthorizationProxy</a> to use for this session provider.
+Must not be nil.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>viewStrategy</code></th>
+						<td><p>The view strategy to use.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A playback controller.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Creates and returns a FairPlay enabled playback controller.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BCOVFPSComponent.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createFairPlaySessionProviderWithApplicationCertificate:authorizationProxy:upstreamSessionProvider:" title="createFairPlaySessionProviderWithApplicationCertificate:authorizationProxy:upstreamSessionProvider:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createFairPlaySessionProviderWithApplicationCertificate:authorizationProxy:upstreamSessionProvider:">&ndash;&nbsp;createFairPlaySessionProviderWithApplicationCertificate:authorizationProxy:upstreamSessionProvider:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates and returns a FairPlay session provider with the specified parameters.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (nonnull id&lt;BCOVPlaybackSessionProvider&gt;)createFairPlaySessionProviderWithApplicationCertificate:(nonnull NSData *)<em>appCert</em> authorizationProxy:(nonnull id&lt;BCOVFPSAuthorizationProxy&gt;)<em>proxy</em> upstreamSessionProvider:(nullable id&lt;BCOVPlaybackSessionProvider&gt;)<em>provider</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>appCert</code></th>
+						<td><p>The FairPlay Application Certificate for this session provider.
+If using Brightcove FPS Server, this can retrieved by
+<a href="../Classes/BCOVFPSBrightcoveAuthProxy.html">BCOVFPSBrightcoveAuthProxy</a>. Must not be nil.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>proxy</code></th>
+						<td><p>The <a href="../Protocols/BCOVFPSAuthorizationProxy.html">BCOVFPSAuthorizationProxy</a> to use for this session provider.
+Must not be nil.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>provider</code></th>
+						<td><p>And upstream session provider to link to. If nil, a BCOVBasicSessionProvider
+will be used.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A session provider.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Creates and returns a FairPlay session provider with the specified parameters.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BCOVFPSComponent.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2015 Brightcove. All rights reserved. Updated: 2015-12-01</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>
