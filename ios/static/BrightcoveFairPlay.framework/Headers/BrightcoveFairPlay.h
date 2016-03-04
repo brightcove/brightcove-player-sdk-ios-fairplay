@@ -1,9 +1,9 @@
 //
-//  BrightcoveFairPlay-iOS.h
-//  BrightcoveFairPlay-iOS
+// BrightcoveFairPlay.h
+// BrightcoveFairplay
 //
-//  Created by Michael Moscardini on 11/10/15.
-//  Copyright © 2015 Brightcove. All rights reserved.
+// Copyright (c) 2016 Brightcove, Inc. All rights reserved.
+// License: https://accounts.brightcove.com/en/terms-and-conditions
 //
 
 #import <UIKit/UIKit.h>

@@ -1,13 +1,17 @@
 //
 // BCOVFPSBrightcoveAuthProxy.h
-// BCOVFairPlay
+// BrightcoveFairplay
 //
-// Copyright (c) 2015 Brightcove, Inc. All rights reserved.
+// Copyright (c) 2016 Brightcove, Inc. All rights reserved.
 // License: https://accounts.brightcove.com/en/terms-and-conditions
 //
 
 #import "BCOVFPSComponent.h"
 
+extern NSString * __nonnull const kBCOVFPSAuthProxyErrorDomain;
+extern const NSInteger kBCOVFPSAuthProxyErrorCodeApplicationCertificateRequestFailed;
+extern const NSInteger kBCOVFPSAuthProxyErrorCodeContentKeyRequestFailed;
+extern const NSInteger kBCOVFPSAuthProxyErrorCodeContentKeyGenerationFailed;
 
 /**
  * Class responsible for interacting with fps.brightcove.com.
