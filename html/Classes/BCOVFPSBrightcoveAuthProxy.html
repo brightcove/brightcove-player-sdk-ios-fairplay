@@ -56,6 +56,10 @@
 	
 	<optgroup label="Properties">
 		
+		<option value="//api/name/fpsBaseURL">fpsBaseURL</option>
+		
+		<option value="//api/name/keyRequestURL">keyRequestURL</option>
+		
 		<option value="//api/name/sharedURLSession">sharedURLSession</option>
 		
 	</optgroup>
@@ -69,6 +73,8 @@
 		<option value="//api/name/init">- init</option>
 		
 		<option value="//api/name/initWithApplicationId:publisherId:">- initWithApplicationId:publisherId:</option>
+		
+		<option value="//api/name/initWithPublisherId:applicationId:">- initWithPublisherId:applicationId:</option>
 		
 		<option value="//api/name/retrieveApplicationCertificate:">- retrieveApplicationCertificate:</option>
 		
@@ -109,7 +115,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>Class responsible for interacting with fps.brightcove.com.</p>
+						<p>Class responsible for interacting with Brightcove FairPlay services.</p>
 					</div>
 					
 					
@@ -125,6 +131,106 @@
 
 						<div class="task-list">
 							<div class="section-method">
+	<a name="//api/name/fpsBaseURL" title="fpsBaseURL"></a>
+	<h3 class="method-title"><code><a href="#//api/name/fpsBaseURL">&nbsp;&nbsp;fpsBaseURL</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The base url for FairPlay related license requests. The default URL points to
+fps.brightcove.com.
+If set to nil, the default NSURL pointing at fps.brightcove.com will be re-created.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, null_resettable) NSURL *fpsBaseURL</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>The base url for FairPlay related license requests. The default URL points to
+fps.brightcove.com.
+If set to nil, the default NSURL pointing at fps.brightcove.com will be re-created.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BCOVFPSBrightcoveAuthProxy.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/keyRequestURL" title="keyRequestURL"></a>
+	<h3 class="method-title"><code><a href="#//api/name/keyRequestURL">&nbsp;&nbsp;keyRequestURL</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The key request URL for FairPlay related key requests.
+Normally set to nil, in which case the key request URL
+will be retrieved from the Video Cloud Playback API response.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, nullable) NSURL *keyRequestURL</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>The key request URL for FairPlay related key requests.
+Normally set to nil, in which case the key request URL
+will be retrieved from the Video Cloud Playback API response.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BCOVFPSBrightcoveAuthProxy.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/sharedURLSession" title="sharedURLSession"></a>
 	<h3 class="method-title"><code><a href="#//api/name/sharedURLSession">&nbsp;&nbsp;sharedURLSession</a></code>
 </h3>
@@ -177,8 +283,8 @@ If set to nil, the default NSURLSession will be re-created.</p>
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/initWithApplicationId:publisherId:" title="initWithApplicationId:publisherId:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/initWithApplicationId:publisherId:">&ndash;&nbsp;initWithApplicationId:publisherId:</a></code>
+	<a name="//api/name/initWithPublisherId:applicationId:" title="initWithPublisherId:applicationId:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithPublisherId:applicationId:">&ndash;&nbsp;initWithPublisherId:applicationId:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -193,7 +299,7 @@ If set to nil, the default NSURLSession will be re-created.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (nullable instancetype)initWithApplicationId:(nonnull NSString *)<em>appId</em> publisherId:(nonnull NSString *)<em>pubId</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (nullable instancetype)initWithPublisherId:(NSString *)<em>pubId</em> applicationId:(nullable NSString *)<em>appId</em></code></div>
 
 		    
 			
@@ -202,13 +308,14 @@ If set to nil, the default NSURLSession will be re-created.</p>
 				<table class="argument-def parameter-def">
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>appId</code></th>
-						<td><p>The application id registered with fps.brightcove.com. Must not be nil.</p></td>
+						<th scope="row" class="argument-name"><code>pubId</code></th>
+						<td><p>The publisher id. Must not be nil.</p></td>
 					</tr>
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>pubId</code></th>
-						<td><p>The publisher id registered with fps.brightcove.com. Must not be nil.</p></td>
+						<th scope="row" class="argument-name"><code>appId</code></th>
+						<td><p>The application id registered with fps.brightcove.com. May be nil
+if not using fps.brightcove.com.</p></td>
 					</tr>
 				
 				</table>
@@ -256,13 +363,13 @@ If set to nil, the default NSURLSession will be re-created.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Retrieves the Application Certificate for fps.brightcove.com. This should be done
-as soon as possible and should be cached for no longer than 6 hours.</p>
+				<p>Retrieves the Application Certificate. This should be done as soon as possible
+and should be cached for no longer than 6 hours.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)retrieveApplicationCertificate:(nonnull void ( ^ ) ( NSData *__nullable applicationCetificate , NSError *__nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)retrieveApplicationCertificate:(void ( ^ ) ( NSData *__nullable applicationCetificate , NSError *__nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -288,8 +395,8 @@ will be executed on the main thread.</p></td>
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>Retrieves the Application Certificate for fps.brightcove.com. This should be done
-as soon as possible and should be cached for no longer than 6 hours.</p>
+				<p>Retrieves the Application Certificate. This should be done as soon as possible
+and should be cached for no longer than 6 hours.</p>
 			</div>
 			
 
@@ -333,6 +440,30 @@ as soon as possible and should be cached for no longer than 6 hours.</p>
 </div>
 						</div>
 						
+
+						<a title="Deprecated Methods" name="task_Deprecated Methods"></a>
+						<h2 class="task-title">Deprecated Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/initWithApplicationId:publisherId:" title="initWithApplicationId:publisherId:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithApplicationId:publisherId:">&ndash;&nbsp;initWithApplicationId:publisherId:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>- (nullable instancetype)initWithApplicationId:(NSString *)<em>appId</em> publisherId:(NSString *)<em>pubId</em></code></div>
+
+		    
+		</div>
+	</div>
+</div>
+						</div>
+						
 					</div>
 					
 					
@@ -345,7 +476,7 @@ as soon as possible and should be cached for no longer than 6 hours.</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2016 Brightcove. All rights reserved. Updated: 2016-03-04</p>
+						<p class="copyright">Copyright &copy; 2016 Brightcove. All rights reserved. Updated: 2016-05-26</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

@@ -6,11 +6,11 @@
 	<dict>
 		<key>Headers/BCOVFPSBrightcoveAuthProxy.h</key>
 		<data>
-		+AHS8ApIzVsyogJlDWPUVy6Hvm8=
+		Ov2/YxoOEXkRtYTce1plsMUxFJk=
 		</data>
 		<key>Headers/BCOVFPSComponent.h</key>
 		<data>
-		p29InACDgxkoBFncAubZEDloTiY=
+		AVGATGTmGDOyh9j68kEKyYnk9ck=
 		</data>
 		<key>Headers/BrightcoveFairPlay.h</key>
 		<data>
@@ -18,7 +18,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		qKvfY45GDe58kRJ+ebHs40xu4CM=
+		PJAWsRZ90y3m/zdi4Q8bRZaDhYM=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -28,21 +28,49 @@
 	<key>files2</key>
 	<dict>
 		<key>Headers/BCOVFPSBrightcoveAuthProxy.h</key>
-		<data>
-		+AHS8ApIzVsyogJlDWPUVy6Hvm8=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			Ov2/YxoOEXkRtYTce1plsMUxFJk=
+			</data>
+			<key>hash2</key>
+			<data>
+			blo1dYEb4SSAM9pk9SkrILAZoyHn0mWe3mjitI9XEA4=
+			</data>
+		</dict>
 		<key>Headers/BCOVFPSComponent.h</key>
-		<data>
-		p29InACDgxkoBFncAubZEDloTiY=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			AVGATGTmGDOyh9j68kEKyYnk9ck=
+			</data>
+			<key>hash2</key>
+			<data>
+			9HLmtEqdrdRVZyjXZc17RLrW6NgMSIuyOpfy7aVO/ng=
+			</data>
+		</dict>
 		<key>Headers/BrightcoveFairPlay.h</key>
-		<data>
-		Tr6XucyUTbXKIdey/cQjfYWS6hQ=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			Tr6XucyUTbXKIdey/cQjfYWS6hQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			mIpG+XYjRI4CcxNjB1ftFnFYCnTQmsJCiHVegJhTU5Y=
+			</data>
+		</dict>
 		<key>Modules/module.modulemap</key>
-		<data>
-		hxPO7P5k/EPlxaOkUSdGc/Ayq+U=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			hxPO7P5k/EPlxaOkUSdGc/Ayq+U=
+			</data>
+			<key>hash2</key>
+			<data>
+			wRUCfASm8ZTygeR5kYQhDfMptw3YKP6FdNp4ys573g8=
+			</data>
+		</dict>
 	</dict>
 	<key>rules</key>
 	<dict>

@@ -8,13 +8,19 @@
 
 #import <BrightcovePlayerSDK/BCOVPlayerSDKManager.h>
 
-
+/**
+ * Error domain for FairPlay related errors.
+ */
 extern NSString * __nonnull const kBCOVFPSErrorDomain;
+
+/**
+ *  Error occured requesting content key.
+ */
 extern const NSInteger kBCOVFPSErrorCodeStreamingContentKeyRequest;
 
 
 /**
- *  Implement this protocol when interacting with a customer FPS license server.
+ *  Implement this protocol when interacting with a custom FPS license server.
  */
 @protocol BCOVFPSAuthorizationProxy <NSObject>
 
@@ -24,9 +30,10 @@ extern const NSInteger kBCOVFPSErrorCodeStreamingContentKeyRequest;
  *
  *  @param loadingRequest    The skd:// loading request made for the asset.
  *  @param keyRequest        The key request data returned by [AVAssetResourceLoadingRequest streamingContentKeyRequestDataForApp:contentIdentifier:options:error:].
+ *  @param source            The BCOVSource
  *  @param completionHandler The completion handler to return the content key. If returning an error, you must leave the contentkey and response parameters nil.
  */
-- (void)encryptedContentKeyForLoadingRequest:(nonnull AVAssetResourceLoadingRequest *)loadingRequest contentKeyRequest:(nonnull NSData *)keyRequest completionHandler:(nonnull void (^)(NSURLResponse * __nullable response, NSData * __nullable contentKey, NSError * __nullable error))completionHandler;
+- (void)encryptedContentKeyForLoadingRequest:(nonnull AVAssetResourceLoadingRequest *)loadingRequest contentKeyRequest:(nonnull NSData *)keyRequest source:(nonnull BCOVSource *)source completionHandler:(nonnull void (^)(NSURLResponse * __nullable response, NSData * __nullable contentKey, NSError * __nullable error))completionHandler;
 
 @end
 

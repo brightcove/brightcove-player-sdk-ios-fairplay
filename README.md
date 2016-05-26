@@ -1,4 +1,4 @@
-# FairPlay plugin for Brightcove Player SDK for iOS, version 1.0.2.30
+# FairPlay plugin for Brightcove Player SDK for iOS, version 1.0.3.55
 
 Supported Platforms
 ===================
@@ -114,4 +114,20 @@ In order to provide the best experience possible, it is recommended that you ret
 
 Using another FairPlay license Server
 ===========
-The `BCOVFPSBrightcoveAuthProxy` is intended to interface with `fps.brightcove.com`. If you need to use another FairPlay license server, you can implement the `BCOVFPSAuthorizationProxy` protocol to handle the license communication.
+The `BCOVFPSBrightcoveAuthProxy` is intended to work with `fps.brightcove.com`. If you need to use another FairPlay license server, you can either implement the `BCOVFPSAuthorizationProxy` protocol to handle the license communication, or if your needs are simple you can override a few of the `BCOVFPSAuthorizationProxy` properties:
+
+	/**
+	 * The base url for FairPlay related license requests. The default URL points to
+	 * fps.brightcove.com.
+	 * If set to nil, the default NSURL pointing at fps.brightcove.com will be re-created.
+	 */
+	@property (nonatomic, strong, null_resettable) NSURL *fpsBaseURL;
+	
+	/**
+	 * The key request URL for FairPlay related key requests.
+	 * Normally set to nil, in which case the key request URL
+	 * will be retrieved from the Video Cloud Playback API response.
+	 */
+	@property (nonatomic, strong, null_resettable) NSURL *keyRequestURL;
+
+Whether using Video Cloud or your own server, your `BCOVVideo` object should contain a `BCOVSource` object whose URL points to some FairPlay-protected content. Unprotected video URLs will still play in a FairPlay workflow.

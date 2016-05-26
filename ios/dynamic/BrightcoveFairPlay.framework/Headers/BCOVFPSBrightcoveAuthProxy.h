@@ -8,15 +8,64 @@
 
 #import "BCOVFPSComponent.h"
 
-extern NSString * __nonnull const kBCOVFPSAuthProxyErrorDomain;
-extern const NSInteger kBCOVFPSAuthProxyErrorCodeApplicationCertificateRequestFailed;
-extern const NSInteger kBCOVFPSAuthProxyErrorCodeContentKeyRequestFailed;
-extern const NSInteger kBCOVFPSAuthProxyErrorCodeContentKeyGenerationFailed;
+NS_ASSUME_NONNULL_BEGIN
 
 /**
- * Class responsible for interacting with fps.brightcove.com.
+ * The key system used by a FairPlay source, if retrieved through Brightcove Player API.
+ * BCOVSource.properties:
+ *  ...
+ *  key_systems: {
+ *                "com.apple.fps.1_0": {
+ *                                      "key_request_url": "https://fps.brightcove.com/v1/fairplay_session_"
+ *                                     }
+ *               }
+ */
+extern NSString * const kBCOVSourceKeySystemFairPlayV1;
+
+/**
+ * The key for the key request URL used by a FairPlay source, if retrieved through Brightcove Player API.
+ */
+extern NSString * const kBCOVSourceKeySystemFairPlayKeyRequestURLKey;
+
+/**
+ * Error domain for FairPlay Auth Proxy related errors.
+ */
+extern NSString * const kBCOVFPSAuthProxyErrorDomain;
+
+/*
+ * Request for Application Certificate failed.
+ */
+extern const NSInteger kBCOVFPSAuthProxyErrorCodeApplicationCertificateRequestFailed;
+
+/*
+ * Request for Key failed.
+ */
+extern const NSInteger kBCOVFPSAuthProxyErrorCodeContentKeyRequestFailed;
+
+/*
+ * Key request generation failed.
+ */
+extern const NSInteger kBCOVFPSAuthProxyErrorCodeContentKeyGenerationFailed;
+
+
+/**
+ * Class responsible for interacting with Brightcove FairPlay services.
  */
 @interface BCOVFPSBrightcoveAuthProxy : NSObject <BCOVFPSAuthorizationProxy>
+
+/**
+ * The base url for FairPlay related license requests. The default URL points to
+ * fps.brightcove.com.
+ * If set to nil, the default NSURL pointing at fps.brightcove.com will be re-created.
+ */
+@property (nonatomic, strong, null_resettable) NSURL *fpsBaseURL;
+
+/**
+ * The key request URL for FairPlay related key requests.
+ * Normally set to nil, in which case the key request URL
+ * will be retrieved from the Video Cloud Playback API response.
+ */
+@property (nonatomic, strong, nullable) NSURL *keyRequestURL;
 
 /**
  * NSURLSession shared across all network calls to the BCOVFPSBrightcoveAuthProxy.
@@ -27,24 +76,25 @@ extern const NSInteger kBCOVFPSAuthProxyErrorCodeContentKeyGenerationFailed;
 @property (nonatomic, strong, null_resettable) NSURLSession *sharedURLSession;
 
 /**
- *  Creates a BCOVFPSAuthorizationProxy to interacts with fps.brightcove.com.
+ * Creates a BCOVFPSAuthorizationProxy to interacts with fps.brightcove.com.
  *
- *  @param appId The application id registered with fps.brightcove.com. Must not be nil.
- *  @param pubId The publisher id registered with fps.brightcove.com. Must not be nil.
+ * @param pubId The publisher id. Must not be nil.
+ * @param appId The application id registered with fps.brightcove.com. May be nil
+ *              if not using fps.brightcove.com.
  *
- *  @return An initialized proxy.
+ * @return An initialized proxy.
  */
-- (nullable instancetype)initWithApplicationId:(nonnull NSString *)appId publisherId:(nonnull NSString *)pubId NS_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithPublisherId:(NSString *)pubId applicationId:(nullable NSString *)appId NS_DESIGNATED_INITIALIZER;
 
 /**
- *  Retrieves the Application Certificate for fps.brightcove.com. This should be done 
- *  as soon as possible and should be cached for no longer than 6 hours.
+ * Retrieves the Application Certificate. This should be done as soon as possible
+ * and should be cached for no longer than 6 hours.
  *
- *  @param completionHandler Executed when the request is completed. If applicationCetificate
- *                           is nil, the error will be populated. The block
- *                           will be executed on the main thread.
+ * @param completionHandler Executed when the request is completed. If applicationCetificate
+ *                          is nil, the error will be populated. The block
+ *                          will be executed on the main thread.
  */
-- (void)retrieveApplicationCertificate:(nonnull void (^)(NSData * __nullable applicationCetificate, NSError * __nullable error))completionHandler;
+- (void)retrieveApplicationCertificate:(void (^)(NSData * __nullable applicationCetificate, NSError * __nullable error))completionHandler;
 
 @end
 
@@ -54,3 +104,11 @@ extern const NSInteger kBCOVFPSAuthProxyErrorCodeContentKeyGenerationFailed;
 - (nullable instancetype)init __attribute__((unavailable("Use `-[BCOVFPSBrightcoveAuthProxy initWithApplicationId:publisherId:]` instead.")));
 
 @end
+
+@interface BCOVFPSBrightcoveAuthProxy (Deprecated)
+
+- (nullable instancetype)initWithApplicationId:(NSString *)appId publisherId:(NSString *)pubId __attribute__((deprecated("Use -BCOVFPSBrightcoveAuthProxy initWithPublisherId:applicationId: instead")));
+
+@end
+
+NS_ASSUME_NONNULL_END
