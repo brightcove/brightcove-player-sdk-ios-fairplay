@@ -1,3 +1,8 @@
+# 1.1.1
+
+### Additions and Improvements
+* The minimum supported deployment target is now iOS 8.0.
+
 # 1.1.0
 
 ### Additions and Improvements

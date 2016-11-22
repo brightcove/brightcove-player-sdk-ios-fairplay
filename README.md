@@ -1,23 +1,31 @@
-# FairPlay plugin for Brightcove Player SDK for iOS, version 1.1.0.61
+# FairPlay plugin for Brightcove Player SDK for iOS, version 1.1.1.68
 
 Supported Platforms
 ===================
 
-iOS 7.0 and above.  
+iOS 8.0 and above.  
+
 tvOS 9.0 and above.
 
 Installation
 ============
-The FairPlay plugin for the Brightcove Player SDK provides two installation packages for iOS, a static library framework and a dynamic framework. The static library target supports deployment on iOS 7 while the dynamic framework only supports iOS 8 and above.
+The FairPlay plugin for the Brightcove Player SDK provides two installation packages for iOS, a static library framework and a dynamic framework. Deployment is supported on iOS 8.0 and above.
 
 The FairPlay plugin provides a dynamic framework to support tvOS 9.0 and above.
 
-**While the plugin contains simulator architectures, you can not play FPS protected content in the simulator. This is a FairPlay limitation.**
+** Please note the following iOS/tvOS + FairPlay limitations: **
+
+* While the plugin contains simulator architectures, you can not play FairPlay protected content in a simulator.
+
+* FairPlay streaming content will not be rendered in AirPlay Mirroring mode. For more details, see the 2015 WWDC presentation 502: [Content Protection for HLS][wwdc502].
+
+[wwdc502]: https://developer.apple.com/videos/play/wwdc2015/502/
+
 
 CocoaPods
 --------------
 
-You can use [CocoaPods][cocoapods] to add the Brightcove Player SDK to your project. You can find the latest `Brightcove-Player-SDK-FairPlay` podspec [here][podspecs]. The podspec supports both iOS and tvOS. CocoaPods 0.39 or newer is required.
+You can use [CocoaPods][cocoapods] to add the Brightcove Player SDK to your project. You can find the latest `Brightcove-Player-SDK-FairPlay` podspec [here][podspecs]. The podspec supports both iOS and tvOS. CocoaPods version 1.0 or higher is required.
 
 Specifying the default pod `Brightcove-Player-SDK-FairPlay` will install the static library framework. To install the dynamic framework, declare the pod with the `dynamic` subspec: `Brightcove-Player-SDK-FairPlay/dynamic`
 
