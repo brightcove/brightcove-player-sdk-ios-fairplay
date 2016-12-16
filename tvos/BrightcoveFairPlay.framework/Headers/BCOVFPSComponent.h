@@ -33,7 +33,12 @@ extern const NSInteger kBCOVFPSErrorCodeStreamingContentKeyRequest;
  *  @param source            The BCOVSource
  *  @param completionHandler The completion handler to return the content key. If returning an error, you must leave the contentkey and response parameters nil.
  */
-- (void)encryptedContentKeyForLoadingRequest:(nonnull AVAssetResourceLoadingRequest *)loadingRequest contentKeyRequest:(nonnull NSData *)keyRequest source:(nonnull BCOVSource *)source completionHandler:(nonnull void (^)(NSURLResponse * __nullable response, NSData * __nullable contentKey, NSError * __nullable error))completionHandler;
+- (void)encryptedContentKeyForLoadingRequest:(nonnull AVAssetResourceLoadingRequest *)loadingRequest
+                           contentKeyRequest:(nonnull NSData *)keyRequest
+                                      source:(nonnull BCOVSource *)source
+                           completionHandler:(nonnull void (^)(NSURLResponse * __nullable response,
+                                                               NSData * __nullable contentKey,
+                                                               NSError * __nullable error))completionHandler;
 
 @end
 
@@ -55,7 +60,9 @@ extern const NSInteger kBCOVFPSErrorCodeStreamingContentKeyRequest;
  *
  *  @return A playback controller.
  */
-- (nonnull id<BCOVPlaybackController>)createFairPlayPlaybackControllerWithApplicationCertificate:(nonnull NSData *)appCert authorizationProxy:(nonnull id<BCOVFPSAuthorizationProxy>)proxy viewStrategy:(nullable BCOVPlaybackControllerViewStrategy)viewStrategy;
+- (nonnull id<BCOVPlaybackController>)createFairPlayPlaybackControllerWithApplicationCertificate:(nonnull NSData *)appCert
+                                                                              authorizationProxy:(nonnull id<BCOVFPSAuthorizationProxy>)proxy
+                                                                                    viewStrategy:(nullable BCOVPlaybackControllerViewStrategy)viewStrategy;
 
 /**
  *  Creates and returns a FairPlay session provider with the specified parameters.
@@ -70,6 +77,8 @@ extern const NSInteger kBCOVFPSErrorCodeStreamingContentKeyRequest;
  *
  *  @return A session provider.
  */
-- (nonnull id<BCOVPlaybackSessionProvider>)createFairPlaySessionProviderWithApplicationCertificate:(nonnull NSData *)appCert authorizationProxy:(nonnull id<BCOVFPSAuthorizationProxy>)proxy upstreamSessionProvider:(nullable id<BCOVPlaybackSessionProvider>)provider;
+- (nonnull id<BCOVPlaybackSessionProvider>)createFairPlaySessionProviderWithApplicationCertificate:(nonnull NSData *)appCert
+                                                                                authorizationProxy:(nonnull id<BCOVFPSAuthorizationProxy>)proxy
+                                                                           upstreamSessionProvider:(nullable id<BCOVPlaybackSessionProvider>)provider;
 
 @end

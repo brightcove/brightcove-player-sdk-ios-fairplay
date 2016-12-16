@@ -84,7 +84,9 @@ extern const NSInteger kBCOVFPSAuthProxyErrorCodeContentKeyGenerationFailed;
  *
  * @return An initialized proxy.
  */
-- (nullable instancetype)initWithPublisherId:(NSString *)pubId applicationId:(nullable NSString *)appId NS_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithPublisherId:(NSString *)pubId
+                               applicationId:(nullable NSString *)appId
+    NS_DESIGNATED_INITIALIZER;
 
 /**
  * Retrieves the Application Certificate. This should be done as soon as possible
@@ -94,20 +96,25 @@ extern const NSInteger kBCOVFPSAuthProxyErrorCodeContentKeyGenerationFailed;
  *                          is nil, the error will be populated. The block
  *                          will be executed on the main thread.
  */
-- (void)retrieveApplicationCertificate:(void (^)(NSData * __nullable applicationCetificate, NSError * __nullable error))completionHandler;
+- (void)retrieveApplicationCertificate:(void (^)(NSData * __nullable applicationCetificate,
+                                                 NSError * __nullable error))completionHandler;
 
 @end
 
 
 @interface BCOVFPSBrightcoveAuthProxy (Unavailable)
 
-- (nullable instancetype)init __attribute__((unavailable("Use `-[BCOVFPSBrightcoveAuthProxy initWithApplicationId:publisherId:]` instead.")));
+- (nullable instancetype)init
+    __attribute__((unavailable("Use `-[BCOVFPSBrightcoveAuthProxy initWithApplicationId:publisherId:]` instead.")));
 
 @end
 
+
 @interface BCOVFPSBrightcoveAuthProxy (Deprecated)
 
-- (nullable instancetype)initWithApplicationId:(NSString *)appId publisherId:(NSString *)pubId __attribute__((deprecated("Use -BCOVFPSBrightcoveAuthProxy initWithPublisherId:applicationId: instead")));
+- (nullable instancetype)initWithApplicationId:(NSString *)appId
+                                   publisherId:(NSString *)pubId
+    __attribute__((deprecated("Use -BCOVFPSBrightcoveAuthProxy initWithPublisherId:applicationId: instead")));
 
 @end
 

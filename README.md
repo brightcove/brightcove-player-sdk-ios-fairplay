@@ -1,4 +1,4 @@
-# FairPlay plugin for Brightcove Player SDK for iOS, version 1.1.1.68
+# FairPlay plugin for Brightcove Player SDK for iOS, version 1.1.2.76
 
 Supported Platforms
 ===================
@@ -35,7 +35,11 @@ Static Framework example:
     
 Dynamic Framework example:
 
-    pod 'Brightcove-Player-SDK-FairPlay/dynamic'    
+    pod 'Brightcove-Player-SDK-FairPlay/dynamic'
+    
+Maintaining an up-to-date master podspec repo is necessary to ensure that you are always using the latest versions of Brightcove software. As of CocoaPods 1.0.0, podspec repo updates are no longer an automatic feature, so to update your master repo, run the following on the command line:
+
+    pod repo update
 
 Manual
 --------------
@@ -50,7 +54,7 @@ To add the FairPlay plugin for Brightcove Player SDK to your project manually:
     Binary With Libraries" section:
     * `BrightcoveFairPlay.framework`  
 6. (Dynamic Framework only) On the "General" tab of your application target, add 'BrightcoveFairPlay.framework' to the "Embedded Binary" section.
-7. (Dynamic Framework only) On the "Build Phases" tab, add a "Run Script" phase with the command `bash ${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/BrightcoveFairPlay.framework/strip-frameworks.sh`. Check "Run script only when installing". This will remove unneeded architectures from the build, which is important for App Store submission. ([rdar://19209161][19209161])
+7. (Dynamic Framework only) On the "Build Phases" tab, add a "Run Script" phase with the command `bash ${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/BrightcoveFairPlay.framework/strip-frameworks.sh`. Check "Run script only when installing". This will remove unneeded architectures from the build, which is important for App Store submission.
 8. (Static Framework only) On the "Build Settings" tab of your application target, add `-ObjC` to the "Other Linker Flags" build setting.
 
 Imports
@@ -58,7 +62,7 @@ Imports
 The Brightcove Player SDK for iOS can be imported into code a few different ways; `@import BrightcoveFairPlay;`, `#import <BrightcoveFairPlay/BrightcoveFairPlay.h>` or `#import <BrightcoveFairPlay/[specific class].h>`.
     
 [cocoapods]: http://cocoapods.org
-[podspecs]: https://github.com/CocoaPods/Specs/tree/master/Specs/Brightcove-Player-SDK-FairPlay
+[podspecs]: https://github.com/CocoaPods/Specs/tree/master/Specs/6/0/2/Brightcove-Player-SDK-FairPlay
 [release]: https://github.com/brightcove/brightcove-player-sdk-ios-fairplay/releases
 [19209161]: https://openradar.appspot.com/19209161
 
@@ -73,21 +77,22 @@ Brightcove FairPlay is a bridge between Apple FairPlay and the [Brightcove Playe
 	[1] BCOVFPSBrightcoveAuthProxy *proxy = [[BCOVFPSBrightcoveAuthProxy alloc] initWithApplicationId:<app-id>
 	                                                                                      publisherId:<pub-id>
 	    
-	[2] [proxy retrieveApplicationCertificate:^(NSData * _Nullable applicationCetificate, NSError * _Nullable error) {
+	[2] [proxy retrieveApplicationCertificate:^(NSData * _Nullable applicationCertificate, NSError * _Nullable error) {
 	    
-	        if (applicationCetificate)
+	        if (applicationCertificate)
 	        {
 	            BCOVPlayerSDKManager *sdkManager = [BCOVPlayerSDKManager sharedManager];
 	            
 	[3]         id<BCOVPlaybackController> playbackController =
-	                        [sdkManager createFairPlayPlaybackControllerWithApplicationCertificate:applicationCetificate
-	                                                                            authorizationProxy:proxy
-	                                                                                  viewStrategy:nil];
+	            	[sdkManager createFairPlayPlaybackControllerWithApplicationCertificate:applicationCertificate
+	                                                                    authorizationProxy:proxy
+	                                                                          viewStrategy:nil];
 	            playbackController.delegate = self;
 	            _playbackController = playbackController;
 	            [self.view addSubview:playbackController.view];
 	            
-	            BCOVPlaybackService *playbackService = [[BCOVPlaybackService alloc] initWithAccountId:<account-id> policyKey:<policy-key>];
+	            BCOVPlaybackService *playbackService = [[BCOVPlaybackService alloc] initWithAccountId:<account-id>
+	                                                                                        policyKey:<policy-key>];
 	            
 	            [playbackService findVideoWithVideoID:<video-id>
 	                                       parameters:@{}
