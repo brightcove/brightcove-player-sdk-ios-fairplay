@@ -62,7 +62,11 @@
 		
 		<option value="//api/name/createFairPlayPlaybackControllerWithApplicationCertificate:authorizationProxy:viewStrategy:">- createFairPlayPlaybackControllerWithApplicationCertificate:authorizationProxy:viewStrategy:</option>
 		
+		<option value="//api/name/createFairPlayPlaybackControllerWithAuthorizationProxy:">- createFairPlayPlaybackControllerWithAuthorizationProxy:</option>
+		
 		<option value="//api/name/createFairPlaySessionProviderWithApplicationCertificate:authorizationProxy:upstreamSessionProvider:">- createFairPlaySessionProviderWithApplicationCertificate:authorizationProxy:upstreamSessionProvider:</option>
+		
+		<option value="//api/name/createFairPlaySessionProviderWithAuthorizationProxy:upstreamSessionProvider:">- createFairPlaySessionProviderWithAuthorizationProxy:upstreamSessionProvider:</option>
 		
 	</optgroup>
 	
@@ -111,6 +115,156 @@
 
 						<div class="task-list">
 							<div class="section-method">
+	<a name="//api/name/createFairPlayPlaybackControllerWithAuthorizationProxy:" title="createFairPlayPlaybackControllerWithAuthorizationProxy:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createFairPlayPlaybackControllerWithAuthorizationProxy:">&ndash;&nbsp;createFairPlayPlaybackControllerWithAuthorizationProxy:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates and returns a FairPlay enabled playback controller.
+If you are using Video Cloud Dynamic Delivery, a Fairplay application certificate will
+automatically be retrieved from the BCOVVideo when you play a playlist.
+You can still supply an application certificate separately by calling
+<code>BCOVBasicPlaybackController addApplicationCertificate:identifier:</code>.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (nonnull id&lt;BCOVPlaybackController&gt;)createFairPlayPlaybackControllerWithAuthorizationProxy:(nonnull id&lt;BCOVFPSAuthorizationProxy&gt;)<em>proxy</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>proxy</code></th>
+						<td><p>The <a href="../Protocols/BCOVFPSAuthorizationProxy.html">BCOVFPSAuthorizationProxy</a> to use for this session provider.
+Must not be nil.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A playback controller.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Creates and returns a FairPlay enabled playback controller.
+If you are using Video Cloud Dynamic Delivery, a Fairplay application certificate will
+automatically be retrieved from the BCOVVideo when you play a playlist.
+You can still supply an application certificate separately by calling
+<code>BCOVBasicPlaybackController addApplicationCertificate:identifier:</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BCOVFPSComponent.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createFairPlaySessionProviderWithAuthorizationProxy:upstreamSessionProvider:" title="createFairPlaySessionProviderWithAuthorizationProxy:upstreamSessionProvider:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createFairPlaySessionProviderWithAuthorizationProxy:upstreamSessionProvider:">&ndash;&nbsp;createFairPlaySessionProviderWithAuthorizationProxy:upstreamSessionProvider:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates and returns a FairPlay session provider with the specified parameters.
+If you are using Video Cloud Dynamic Delivery, a Fairplay application certificate will
+automatically be retrieved from the BCOVVideo when you play a playlist.
+You can still supply an application certificate separately by calling
+<code>BCOVBasicPlaybackController addApplicationCertificate:identifier:</code>.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (nonnull id&lt;BCOVPlaybackSessionProvider&gt;)createFairPlaySessionProviderWithAuthorizationProxy:(nonnull id&lt;BCOVFPSAuthorizationProxy&gt;)<em>proxy</em> upstreamSessionProvider:(nullable id&lt;BCOVPlaybackSessionProvider&gt;)<em>provider</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>proxy</code></th>
+						<td><p>The <a href="../Protocols/BCOVFPSAuthorizationProxy.html">BCOVFPSAuthorizationProxy</a> to use for this session provider.
+Must not be nil.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>provider</code></th>
+						<td><p>And upstream session provider to link to. If nil, a BCOVBasicSessionProvider
+will be used.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A session provider.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Creates and returns a FairPlay session provider with the specified parameters.
+If you are using Video Cloud Dynamic Delivery, a Fairplay application certificate will
+automatically be retrieved from the BCOVVideo when you play a playlist.
+You can still supply an application certificate separately by calling
+<code>BCOVBasicPlaybackController addApplicationCertificate:identifier:</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BCOVFPSComponent.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/createFairPlayPlaybackControllerWithApplicationCertificate:authorizationProxy:viewStrategy:" title="createFairPlayPlaybackControllerWithApplicationCertificate:authorizationProxy:viewStrategy:"></a>
 	<h3 class="method-title"><code><a href="#//api/name/createFairPlayPlaybackControllerWithApplicationCertificate:authorizationProxy:viewStrategy:">&ndash;&nbsp;createFairPlayPlaybackControllerWithApplicationCertificate:authorizationProxy:viewStrategy:</a></code>
 </h3>
@@ -127,7 +281,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (nonnull id&lt;BCOVPlaybackController&gt;)createFairPlayPlaybackControllerWithApplicationCertificate:(nonnull NSData *)<em>appCert</em> authorizationProxy:(nonnull id&lt;BCOVFPSAuthorizationProxy&gt;)<em>proxy</em> viewStrategy:(nullable BCOVPlaybackControllerViewStrategy)<em>viewStrategy</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (nonnull id&lt;BCOVPlaybackController&gt;)createFairPlayPlaybackControllerWithApplicationCertificate:(nullable NSData *)<em>appCert</em> authorizationProxy:(nonnull id&lt;BCOVFPSAuthorizationProxy&gt;)<em>proxy</em> viewStrategy:(nullable BCOVPlaybackControllerViewStrategy)<em>viewStrategy</em></code></div>
 
 		    
 			
@@ -139,7 +293,7 @@
 						<th scope="row" class="argument-name"><code>appCert</code></th>
 						<td><p>The Fairplay Application Certificate for this session provider.
 If using Brightcove FPS Server, this can retrieved by
-<a href="../Classes/BCOVFPSBrightcoveAuthProxy.html">BCOVFPSBrightcoveAuthProxy</a>. Must not be nil.</p></td>
+<a href="../Classes/BCOVFPSBrightcoveAuthProxy.html">BCOVFPSBrightcoveAuthProxy</a>. Can be nil.</p></td>
 					</tr>
 				
 					<tr>
@@ -203,7 +357,7 @@ Must not be nil.</p></td>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (nonnull id&lt;BCOVPlaybackSessionProvider&gt;)createFairPlaySessionProviderWithApplicationCertificate:(nonnull NSData *)<em>appCert</em> authorizationProxy:(nonnull id&lt;BCOVFPSAuthorizationProxy&gt;)<em>proxy</em> upstreamSessionProvider:(nullable id&lt;BCOVPlaybackSessionProvider&gt;)<em>provider</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (nonnull id&lt;BCOVPlaybackSessionProvider&gt;)createFairPlaySessionProviderWithApplicationCertificate:(nullable NSData *)<em>appCert</em> authorizationProxy:(nonnull id&lt;BCOVFPSAuthorizationProxy&gt;)<em>proxy</em> upstreamSessionProvider:(nullable id&lt;BCOVPlaybackSessionProvider&gt;)<em>provider</em></code></div>
 
 		    
 			
@@ -215,7 +369,7 @@ Must not be nil.</p></td>
 						<th scope="row" class="argument-name"><code>appCert</code></th>
 						<td><p>The FairPlay Application Certificate for this session provider.
 If using Brightcove FPS Server, this can retrieved by
-<a href="../Classes/BCOVFPSBrightcoveAuthProxy.html">BCOVFPSBrightcoveAuthProxy</a>. Must not be nil.</p></td>
+<a href="../Classes/BCOVFPSBrightcoveAuthProxy.html">BCOVFPSBrightcoveAuthProxy</a>. Can be nil.</p></td>
 					</tr>
 				
 					<tr>
@@ -278,7 +432,7 @@ will be used.</p></td>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2016 Brightcove. All rights reserved. Updated: 2016-12-16</p>
+						<p class="copyright">Copyright &copy; 2017 Brightcove. All rights reserved. Updated: 2017-03-02</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
