@@ -1,5 +1,10 @@
 # FairPlay plugin for Brightcove Player SDK for iOS, version 1.1.3.89
 
+Important Notice
+================
+
+This version of the FairPlay plugin is no longer supported. The FairPlay plugin has been repackaged with the Core SDK. Refer to the latest release of the [Brightcove Player SDK for iOS][bcovsdk].
+
 Supported Platforms
 ===================
 
